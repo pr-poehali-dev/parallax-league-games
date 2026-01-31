@@ -103,7 +103,7 @@ const Index = () => {
               transform: `translateY(${scrollY * 0.3}px)`,
             }}
           >
-            <h1 className="text-7xl md:text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 animate-fade-in leading-relaxed">
               ЛИГА ИГР
             </h1>
             <p className="text-2xl md:text-3xl text-cyan-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>

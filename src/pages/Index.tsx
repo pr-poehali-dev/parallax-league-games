@@ -82,6 +82,26 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-cyan-500/20">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img 
+              src="https://cdn.poehali.dev/files/3d36baf2-96a5-47c4-94f3-1c64774985d6.jpg" 
+              alt="Лига Игр" 
+              className="w-12 h-12 object-contain"
+            />
+            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+              ЛИГА ИГР
+            </span>
+          </div>
+          <Button 
+            className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700"
+          >
+            Связаться
+          </Button>
+        </div>
+      </nav>
+
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 z-0"
@@ -103,9 +123,16 @@ const Index = () => {
               transform: `translateY(${scrollY * 0.3}px)`,
             }}
           >
-            <h1 className="text-7xl md:text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 animate-fade-in">
-              ЛИГА ИГР
-            </h1>
+            <div className="flex flex-col items-center gap-6 animate-fade-in">
+              <img 
+                src="https://cdn.poehali.dev/files/3d36baf2-96a5-47c4-94f3-1c64774985d6.jpg" 
+                alt="Лига Игр" 
+                className="w-32 h-32 md:w-48 md:h-48 object-contain"
+              />
+              <h1 className="text-7xl md:text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400">
+                ЛИГА ИГР
+              </h1>
+            </div>
             <p className="text-2xl md:text-3xl text-cyan-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Фиджитал мероприятия нового поколения
             </p>

@@ -52,23 +52,50 @@ const Index = () => {
   const tariffs = [
     {
       name: 'Базовый',
-      price: '25 000 ₽',
-      duration: 'До 20 участников',
-      features: ['2 часа игрового времени', '3 дисциплины на выбор', 'Базовая трансляция', 'Призы победителям'],
+      price: '20 000 ₽',
+      duration: 'До 15 участников',
+      description: 'Идеальный старт в мир фиджитала для компании друзей или класса',
+      time: '2 часа',
+      format: '1 час реальных активностей + 1 час цифровых приключений',
+      features: [
+        'Физический блок «Вызов Кальмара» на стритбольной площадке',
+        'Виртуальный блок «Миссия в Майнкрафте» на 15 игровых ПК',
+        'Зона фудкорта для перекуса',
+        'Работа игромастеров-ведущих',
+        'Техническая организация (30 мин. на сбор гостей)'
+      ],
       popular: false,
     },
     {
       name: 'Стандарт',
-      price: '50 000 ₽',
-      duration: 'До 50 участников',
-      features: ['4 часа игрового времени', '5 дисциплин на выбор', 'HD трансляция + комментатор', 'Фотозона', 'Кейтеринг', 'Призовой фонд'],
+      price: '32 000 ₽',
+      duration: 'До 20 участников',
+      description: 'Масштабное приключение с разнообразием активностей и игровых платформ',
+      time: '3 часа',
+      format: 'Расширенная программа с двумя типами площадок',
+      features: [
+        'Физический блок «Большой квест» на целом стадионе',
+        'Виртуальный блок «Битва вселенных»: Minecraft (18 ПК) + Fortnite (3 PlayStation)',
+        'Праздничная зона для празднования',
+        'Работа ведущих и технических специалистов',
+        'Техническая организация (30 мин. на сбор гостей)'
+      ],
       popular: true,
     },
     {
       name: 'Премиум',
-      price: '100 000 ₽',
-      duration: 'До 100 участников',
-      features: ['Полный день', 'Неограниченные дисциплины', 'Профессиональная студия', 'VIP-зона', 'Шоу-программа', 'Эксклюзивные призы'],
+      price: '70 000 ₽',
+      duration: 'До 36 участников',
+      description: 'Турнир уровня PRO с максимальным погружением и эксклюзивным форматом',
+      time: '4 часа',
+      format: 'Профессиональные соревнования в двух мирах с применением VR-технологий',
+      features: [
+        'Физический блок «Турнир «Клюшки-валенки» на стадионе',
+        'Виртуальный блок в Fortnite: 18 ПК + 3 PlayStation + 2 VR-шлема',
+        'Полная техническая и организационная поддержка',
+        'Работа команды ведущих, технических специалистов и VR-ассистентов',
+        'Призовой фонд для победителей (опционально)'
+      ],
       popular: false,
     },
   ];
@@ -285,14 +312,27 @@ const Index = () => {
                     <p className="text-5xl font-bold text-white">{tariff.price}</p>
                     <p className="text-gray-400 mt-2">{tariff.duration}</p>
                   </div>
+                  <CardDescription className="text-gray-300 text-base px-2">{tariff.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  {tariff.features.map((feature, fidx) => (
-                    <div key={fidx} className="flex items-start gap-3">
-                      <Icon name="Check" className="text-cyan-400 flex-shrink-0 mt-1" />
-                      <p className="text-gray-300">{feature}</p>
+                  <div className="space-y-3 mb-4">
+                    <div className="flex items-start gap-2">
+                      <Icon name="Clock" className="text-purple-400 flex-shrink-0 mt-0.5" size={18} />
+                      <p className="text-sm text-gray-300"><span className="font-semibold text-purple-400">Хронометраж:</span> {tariff.time}</p>
                     </div>
-                  ))}
+                    <div className="flex items-start gap-2">
+                      <Icon name="Zap" className="text-cyan-400 flex-shrink-0 mt-0.5" size={18} />
+                      <p className="text-sm text-gray-300"><span className="font-semibold text-cyan-400">Формат:</span> {tariff.format}</p>
+                    </div>
+                  </div>
+                  <div className="border-t border-purple-500/30 pt-4 space-y-3">
+                    {tariff.features.map((feature, fidx) => (
+                      <div key={fidx} className="flex items-start gap-3">
+                        <Icon name="Check" className="text-cyan-400 flex-shrink-0 mt-1" size={18} />
+                        <p className="text-sm text-gray-300">{feature}</p>
+                      </div>
+                    ))}
+                  </div>
                   <Button className="w-full mt-6 bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700">
                     Выбрать тариф
                   </Button>

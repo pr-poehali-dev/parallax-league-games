@@ -102,7 +102,7 @@ const Index = () => {
   ];
 
   const gallery = [
-    { videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', label: 'Как проходят наши мероприятия' },
+    { videoUrl: 'https://rutube.ru/play/embed/b10857a805d4b76b0aef046787cebfd8', label: 'Как проходят наши мероприятия' },
   ];
 
   return (

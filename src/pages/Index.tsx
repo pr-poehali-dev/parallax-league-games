@@ -102,10 +102,7 @@ const Index = () => {
   ];
 
   const gallery = [
-    { color: 'from-purple-600 to-cyan-600', label: 'Арена' },
-    { color: 'from-cyan-600 to-pink-600', label: 'Турнир' },
-    { color: 'from-pink-600 to-purple-600', label: 'Награждение' },
-    { color: 'from-purple-600 to-cyan-600', label: 'Трансляция' },
+    { videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', label: 'Как проходят наши мероприятия' },
   ];
 
   return (
@@ -282,19 +279,36 @@ const Index = () => {
         }}
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+          <h2 className="text-5xl md:text-6xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
             Галерея
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <p className="text-center text-gray-300 text-lg mb-12">
+            Смотрите, как проходят наши фиджитал-мероприятия
+          </p>
+          <div className="max-w-4xl mx-auto">
             {gallery.map((item, idx) => (
-              <div
+              <Card
                 key={idx}
-                className={`aspect-square rounded-xl bg-gradient-to-br ${item.color} hover-scale cursor-pointer relative overflow-hidden group`}
+                className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-purple-500/30 backdrop-blur-sm overflow-hidden hover-scale"
               >
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                  <p className="text-2xl font-bold">{item.label}</p>
-                </div>
-              </div>
+                <CardHeader>
+                  <CardTitle className="text-2xl text-center text-cyan-300">{item.label}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="aspect-video rounded-lg overflow-hidden">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={item.videoUrl}
+                      title={item.label}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -374,60 +388,25 @@ const Index = () => {
             </h2>
             <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-cyan-500/30 backdrop-blur-sm">
               <CardContent className="pt-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <Icon name="MapPin" size={24} className="text-cyan-400 flex-shrink-0 mt-1" />
-                      <div>
-                        <p className="font-bold text-cyan-300">Адрес</p>
-                        <p className="text-gray-300">г. Пермь, ул. Игровая, 1</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <Icon name="Phone" size={24} className="text-cyan-400 flex-shrink-0 mt-1" />
-                      <div>
-                        <p className="font-bold text-cyan-300">Телефон</p>
-                        <p className="text-gray-300">+7 (342) 123-45-67</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <Icon name="Mail" size={24} className="text-cyan-400 flex-shrink-0 mt-1" />
-                      <div>
-                        <p className="font-bold text-cyan-300">Email</p>
-                        <p className="text-gray-300">info@ligagames.ru</p>
-                      </div>
+                <div className="flex flex-col items-center justify-center space-y-6 text-center">
+                  <div className="flex items-center gap-4">
+                    <Icon name="Phone" size={40} className="text-cyan-400" />
+                    <div>
+                      <p className="text-lg text-gray-300 mb-2">Свяжитесь с нами</p>
+                      <a 
+                        href="tel:+79504602696" 
+                        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-300 hover:to-purple-300 transition-all"
+                      >
+                        +7 (950) 460-26-96
+                      </a>
                     </div>
                   </div>
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <Icon name="Clock" size={24} className="text-cyan-400 flex-shrink-0 mt-1" />
-                      <div>
-                        <p className="font-bold text-cyan-300">Режим работы</p>
-                        <p className="text-gray-300">Ежедневно: 10:00 - 22:00</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <p className="font-bold text-cyan-300">Соцсети</p>
-                      <div className="flex gap-4">
-                        {['Instagram', 'Facebook', 'Twitter'].map((social, idx) => (
-                          <Button
-                            key={idx}
-                            size="icon"
-                            variant="outline"
-                            className="border-cyan-500/50 hover:bg-cyan-500/20"
-                          >
-                            <Icon name="Share2" className="text-cyan-400" />
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-8 pt-8 border-t border-cyan-500/30">
-                  <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-lg font-bold">
-                    Записаться на консультацию
-                    <Icon name="ArrowRight" className="ml-2" />
-                  </Button>
+                  <a href="tel:+79504602696" className="w-full">
+                    <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-xl font-bold py-8">
+                      <Icon name="Phone" className="mr-3" size={28} />
+                      Позвонить сейчас
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>

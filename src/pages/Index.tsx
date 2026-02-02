@@ -43,10 +43,11 @@ const Index = () => {
   ];
 
   const steps = [
-    { step: '01', title: 'Выбор формата', description: 'Подбираем игры и активности под ваше мероприятие' },
-    { step: '02', title: 'Настройка площадки', description: 'Готовим физическое пространство и онлайн-трансляции' },
-    { step: '03', title: 'Проведение', description: 'Координируем турниры в реальном времени' },
-    { step: '04', title: 'Награждение', description: 'Подводим итоги с призами и церемонией' },
+    { step: '01', title: 'Приглашения', description: 'Каждый игрок получает приглашение с полной информацией: где, когда и во сколько, чтобы никто не опоздал и нашёлся' },
+    { step: '02', title: 'Встреча на площадке', description: 'Встречаем вас на современной Фиджитал площадке, располагаем верхнюю одежду и личные вещи по шкафчикам, проводим экскурсию по миру фиджитал соревнований' },
+    { step: '03', title: 'Формирование команд', description: 'Делим игроков на команды для здорового духа соперничества' },
+    { step: '04', title: 'Соревнования', description: 'Забираем игроков на локации и проводим с ними увлекательные соревнования в реальном и виртуальном мире' },
+    { step: '05', title: 'Награждение', description: 'Подсчитываем количество набранных баллов и выдаём игровые награды, а также призы за участие' },
   ];
 
   const tariffs = [
@@ -233,9 +234,12 @@ const Index = () => {
         }}
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
-            Как это работает
+          <h2 className="text-5xl md:text-6xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+            Как всё работает?
           </h2>
+          <p className="text-center text-gray-300 text-lg mb-16 max-w-3xl mx-auto">
+            Схема проведения мероприятия — от приглашения до награждения победителей
+          </p>
           <div className="max-w-4xl mx-auto space-y-12">
             {steps.map((step, idx) => (
               <div key={idx} className="flex gap-6 items-start group">
@@ -250,6 +254,22 @@ const Index = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Card className="max-w-2xl mx-auto bg-gradient-to-br from-purple-600/20 to-cyan-600/20 border-cyan-400/50 backdrop-blur-sm">
+              <CardContent className="pt-6">
+                <p className="text-gray-300 text-lg mb-4">
+                  Более подробно вы можете узнать по телефону:
+                </p>
+                <a 
+                  href="tel:+79504602696" 
+                  className="inline-flex items-center gap-3 text-3xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <Icon name="Phone" size={32} />
+                  +7 (950) 460-26-96
+                </a>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
